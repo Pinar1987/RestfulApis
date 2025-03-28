@@ -59,6 +59,47 @@ app.get('/users', (req, res) => {
     res.json(users);
 });
 
+
+/**
+ * @swagger
+ * /users:
+ *   post:
+ *     tags: [Users]
+ *     summary: Create a new user
+ *     description: Add a new user to the system
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - userName
+ *               - email
+ *             properties:
+ *               userName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: List of users
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   userName:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ */
+
+
 app.post('/users', (req, res) => {
     const newUser = {
         id: users.length + 1,
