@@ -24,3 +24,12 @@ app.post('/users', (req, res) => {
     users.push(newUser);
     res.status(201).json({ message: "User Added Successfully", user: newUser });
 });
+
+app.put('/users/:id', (req, res) => {
+    const userId = parseInt(req.params.id)
+    const user = users.find(u => u.id === userId);
+    if (!user) return res.status(404).send({ message: 'User not found' });
+    user.userName = req.body.userName || user.userName;
+    user.email = req.body.email || user.email;
+    res.json({ message: "User updated successfully", user });
+});
