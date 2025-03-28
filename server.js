@@ -7,8 +7,8 @@ const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 let users = [
-    { id: 1, userName: "Alice", email: "alice@example.com" },
-    { id: 2, userName: "Bob", email: "bob@example.com" }
+    { id: 1, userName: "Pinar", email: "pinar@pinar.com" },
+    { id: 2, userName: "Burak", email: "burak@burak.com" }
 ];
 
 app.get('/users', (req, res) => {
