@@ -30,6 +30,31 @@ let users = [
     { id: 2, userName: "Burak", email: "burak@burak.com" }
 ];
 
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     tags: [Users]
+ *     summary: Retrieve all users
+ *     description: Get a list of all users
+ *     responses:
+ *       200:
+ *         description: List of users
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   userName:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ */
+
 app.get('/users', (req, res) => {
     res.json(users);
 });
