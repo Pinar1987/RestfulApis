@@ -159,7 +159,6 @@ app.post('/users', (req, res) => {
  *         description: User not found
  */
 
-s
 app.put('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id)
     const user = users.find(u => u.id === userId);
