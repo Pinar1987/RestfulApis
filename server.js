@@ -14,3 +14,13 @@ let users = [
 app.get('/users', (req, res) => {
     res.json(users);
 });
+
+app.post('/users', (req, res) => {
+    const newUser = {
+        id: users.length + 1,
+        userName: req.body.userName,
+        email: req.body.email
+    };
+    users.push(newUser);
+    res.status(201).json({ message: "User Added Successfully", user: newUser });
+});
