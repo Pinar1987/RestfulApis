@@ -168,6 +168,36 @@ app.put('/users/:id', (req, res) => {
     res.json({ message: "User updated successfully", user });
 });
 
+
+/**
+ * @swagger
+ * /users/{id}:
+ *   delete:
+ *     tags: [Users]
+ *     summary: Delete a user by ID
+ *     description: Remove a user from the system
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID of the user to delete
+ *     responses:
+ *       200:
+ *         description: User deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       404:
+ *         description: User not found
+ */
+
+
 app.delete('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id)
     users = users.filter(u => u.id !== userId);
