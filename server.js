@@ -110,6 +110,56 @@ app.post('/users', (req, res) => {
     res.status(201).json({ message: "User Added Successfully", user: newUser });
 });
 
+
+/**
+ * @swagger
+ * /users/{id}:
+ *   put:
+ *     tags: [Users]
+ *     summary: Update a user by ID
+ *     description: Update an existing user's details
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID of the user to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                     userName:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *       404:
+ *         description: User not found
+ */
+
+s
 app.put('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id)
     const user = users.find(u => u.id === userId);
